@@ -1,12 +1,34 @@
+const AC = document.getElementById("AC");
+const result = document.getElementById("result");
 
+let nonZero;
+let computation;
 
 // function that displays the value of the input and also the output
 function display(val) {
-    document.getElementById("result").value += val;
+    if(result.value == null) {
+        document.getElementById("result").innerHTML += val;
+        computation = document.getElementById("result").innerHTML
+        console.log(result.value);
+        console.log(computation);
+    } else if(result.value != null) {
+        if(result.value == 0) {
+            computation = val;
+            document.getElementById("result").value = computation;
+            document.getElementById("result").innerText = val;
+            console.log("naw");
+        } else if(result.value != 0) {
+            document.getElementById("result").innerHTML += val;
+        }
+    }
 }
 
+// function that clears the screen
 function clear() {
-    result.innerHTML = 0;
+    document.getElementById("result").innerHTML = result.getAttribute("value");
+    result.value = result.getAttribute("value");
+    nonZero = null;
+    computation = 0;
 }
 
 function displayFunction(event) {
@@ -19,3 +41,5 @@ function displayFunction(event) {
         || event.key == '*' || event.key == '/')
         document.getElementById("result").value += event.key;
 }
+ 
+AC.addEventListener("click", clear);
