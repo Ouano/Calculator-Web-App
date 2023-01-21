@@ -1,34 +1,55 @@
 const AC = document.getElementById("AC");
 const result = document.getElementById("result");
+const equal = document.getElementById("equal");
 
-let nonZero;
-let computation;
+let checkOperation = false;
+let input;
+let secondInput
+let finalAnswer;
 
 // function that displays the value of the input and also the output
 function display(val) {
     if(result.value == null) {
-        document.getElementById("result").innerHTML += val;
-        computation = document.getElementById("result").innerHTML
-        console.log(result.value);
-        console.log(computation);
+        result.innerHTML += val;
+        input = result.innerHTML;
+        console.log(input);
     } else if(result.value != null) {
-        if(result.value == 0) {
-            computation = val;
-            document.getElementById("result").value = computation;
-            document.getElementById("result").innerText = val;
-            console.log("naw");
-        } else if(result.value != 0) {
-            document.getElementById("result").innerHTML += val;
+        console.log(checkOperation);
+        if(checkOperation == false) {
+            if(result.value == 0) {
+                input = val;
+                result.value = input;
+                result.innerText = val;
+                console.log(input);
+            }else if(result.value != 0) {
+                result.innerHTML += val;
+                input = result.innerHTML;
+                result.value = input;
+                console.log(input + " err");
+            }
+        } else if(checkOperation == true) {
+            if(result.value == 0) {
+                secondInput = val;
+                result.value = secondInput;
+                result.innerText = val;
+                console.log(secondInput);
+            }else if(result.value != 0) {
+                result.innerHTML += val;
+                secondInput = result.innerHTML;
+                console.log(secondInput + " err");
+            }
         }
     }
 }
 
 // function that clears the screen
 function clear() {
-    document.getElementById("result").innerHTML = result.getAttribute("value");
+    result.innerHTML = result.getAttribute("value");
     result.value = result.getAttribute("value");
     nonZero = null;
-    computation = 0;
+    input = 0;
+    checkOperation = false;
+    console.log("cleared");
 }
 
 function displayFunction(event) {
@@ -39,7 +60,28 @@ function displayFunction(event) {
         || event.key == '8' || event.key == '9' 
         || event.key == '+' || event.key == '-'
         || event.key == '*' || event.key == '/')
-        document.getElementById("result").value += event.key;
+        result.value += event.key;
+}
+
+// function that checks user chosen operation
+function operation(chosen) {
+    if(chosen == 'addition') {
+        checkOperation = true;
+        console.log(chosen)
+        result.value = 0;
+        console.log(result.value);
+    }
+}
+
+
+// function that shows the final answer
+function resultedOperation() {
+    finalAnswer = parseInt(input) + parseInt(secondInput);
+    console.log(finalAnswer);
+    result.innerHTML = finalAnswer;
+    result.value = 0;
+    checkOperation = false;
 }
  
 AC.addEventListener("click", clear);
+equal.addEventListener("click",resultedOperation)

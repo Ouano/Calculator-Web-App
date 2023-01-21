@@ -75,6 +75,9 @@ button {
 .operand {
     background-color: #505050;
 }
+.decimal {
+    background-color: #505050;
+}
 .operator{
     background-color: #FF9500;
 }
