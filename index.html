@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,15 +14,15 @@
             <button type="button" id="AC" class="clear" value="clear">AC</button>
             <button type="button" class="sign" value="sign">+/-</button>
             <button type="button" class="percent" value="percent">%</button>
-            <button type="button" class="operator" value="/">/</button>
+            <button type="button" class="operator" value="/" onclick="operation('division')">/</button>
             <button type="button" class="operand" value="7" onclick="display(7)">7</button>
             <button type="button" class="operand" value="8" onclick="display(8)">8</button>
             <button type="button" class="operand" value="9" onclick="display(9)">9</button>
-            <button type="button" class="operator" value="*">*</button>
+            <button type="button" class="operator" value="*" onclick="operation('multiplication')">*</button>
             <button type="button" class="operand" value="4" onclick="display(4)">4</button>
             <button type="button" class="operand" value="5" onclick="display(5)">5</button>
             <button type="button" class="operand" value="6" onclick="display(6)">6</button>
-            <button type="button" class="operator" value="-">-</button>
+            <button type="button" class="operator" value="-" onclick="operation('subtraction')">-</button>
             <button type="button" class="operand" value="1" onclick="display(1)">1</button>
             <button type="button" class="operand" value="2" onclick="display(2)">2</button>
             <button type="button" class="operand" value="3" onclick="display(3)">3</button>

@@ -2,6 +2,7 @@ const AC = document.getElementById("AC");
 const result = document.getElementById("result");
 const equal = document.getElementById("equal");
 
+let userOperator = "";
 let checkOperation = false;
 let input;
 let secondInput
@@ -49,6 +50,7 @@ function clear() {
     nonZero = null;
     input = 0;
     checkOperation = false;
+    finalAnswer = null;
     console.log("cleared");
 }
 
@@ -70,17 +72,76 @@ function operation(chosen) {
         console.log(chosen)
         result.value = 0;
         console.log(result.value);
+        userOperator = chosen;
+    } else if(chosen == 'subtraction') {
+        checkOperation = true;
+        console.log(chosen)
+        result.value = 0;
+        console.log(result.value);
+        userOperator = chosen;
+    } else if(chosen == 'multiplication') {
+        checkOperation = true;
+        console.log(chosen)
+        result.value = 0;
+        console.log(result.value);
+        userOperator = chosen;
+    } else if(chosen == 'division') {
+        checkOperation = true;
+        console.log(chosen)
+        result.value = 0;
+        console.log(result.value);
+        userOperator = chosen;
     }
 }
 
 
 // function that shows the final answer
 function resultedOperation() {
-    finalAnswer = parseInt(input) + parseInt(secondInput);
-    console.log(finalAnswer);
-    result.innerHTML = finalAnswer;
-    result.value = 0;
-    checkOperation = false;
+    if(finalAnswer == null) {
+        if(userOperator == 'addition') {
+            finalAnswer = parseInt(input) + parseInt(secondInput);
+            console.log(finalAnswer);
+            result.innerHTML = finalAnswer;
+            checkOperation = false;
+        } else if(userOperator == 'subtraction') {
+            finalAnswer = parseInt(input) - parseInt(secondInput);
+            console.log(finalAnswer);
+            result.innerHTML = finalAnswer;
+            checkOperation = false;
+        } else if(userOperator == 'multiplication') {
+            finalAnswer = parseInt(input) * parseInt(secondInput);
+            console.log(finalAnswer);
+            result.innerHTML = finalAnswer;
+            checkOperation = false;
+        } else if(userOperator == 'division') {
+            finalAnswer = parseInt(input) / parseInt(secondInput);
+            console.log(finalAnswer);
+            result.innerHTML = finalAnswer;
+            checkOperation = false;
+        }
+    } else {
+        if(userOperator == 'addition') {
+            finalAnswer += parseInt(secondInput);
+            console.log(secondInput);
+            result.innerText = finalAnswer;
+            checkOperation = false;
+        } else if(userOperator == 'subtraction') {
+            finalAnswer -= parseInt(secondInput);
+            console.log(secondInput);
+            result.innerText = finalAnswer;
+            checkOperation = false;
+        } else if(userOperator == 'multiplication') {
+            finalAnswer *= parseInt(secondInput);
+            console.log(secondInput);
+            result.innerText = finalAnswer;
+            checkOperation = false;
+        } else if(userOperator == 'division') {
+            finalAnswer /= parseInt(secondInput);
+            console.log(secondInput);
+            result.innerText = finalAnswer;
+            checkOperation = false;
+        }
+    }
 }
  
 AC.addEventListener("click", clear);
