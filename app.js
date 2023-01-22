@@ -16,6 +16,7 @@ function display(val) {
         console.log(input);
     } else if(result.value != null) {
         console.log(checkOperation);
+        console.log(input);
         if(checkOperation == false) {
             if(result.value == 0) {
                 input = val;
@@ -99,22 +100,22 @@ function operation(chosen) {
 function resultedOperation() {
     if(finalAnswer == null) {
         if(userOperator == 'addition') {
-            finalAnswer = parseInt(input) + parseInt(secondInput);
+            finalAnswer = parseFloat(input) + parseInt(secondInput);
             console.log(finalAnswer);
             result.innerHTML = finalAnswer;
             checkOperation = false;
         } else if(userOperator == 'subtraction') {
-            finalAnswer = parseInt(input) - parseInt(secondInput);
+            finalAnswer = parseFloat(input) - parseInt(secondInput);
             console.log(finalAnswer);
             result.innerHTML = finalAnswer;
             checkOperation = false;
         } else if(userOperator == 'multiplication') {
-            finalAnswer = parseInt(input) * parseInt(secondInput);
+            finalAnswer = parseFloat(input) * parseInt(secondInput);
             console.log(finalAnswer);
             result.innerHTML = finalAnswer;
             checkOperation = false;
         } else if(userOperator == 'division') {
-            finalAnswer = parseInt(input) / parseInt(secondInput);
+            finalAnswer = parseFloat(input) / parseInt(secondInput);
             console.log(finalAnswer);
             result.innerHTML = finalAnswer;
             checkOperation = false;
@@ -144,5 +145,13 @@ function resultedOperation() {
     }
 }
  
+// function that will make numbers into percent decimal
+function percent(){
+    input = parseInt(result.innerHTML) / 100;
+    result.innerHTML = input
+    console.log(input);
+}
+
+
 AC.addEventListener("click", clear);
 equal.addEventListener("click",resultedOperation)
