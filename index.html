@@ -12,7 +12,7 @@
         <div class="container">
             <div class="display" id="result" contentEditable=true placeholder="0" value="0"></div>
             <button type="button" id="AC" class="clear" value="clear">AC</button>
-            <button type="button" class="sign" value="sign">+/-</button>
+            <button type="button" class="sign" value="sign" onclick="changeSign()">+/-</button>
             <button type="button" class="percent" value="percent" onclick="percent()">%</button>
             <button type="button" class="operator" value="/" onclick="operation('division')">/</button>
             <button type="button" class="operand" value="7" onclick="display(7)">7</button>
@@ -28,7 +28,7 @@
             <button type="button" class="operand" value="3" onclick="display(3)">3</button>
             <button type="button" class="operator" value="+" onclick="operation('addition')">+</button>
             <button type="button" id="zero" class="operand" value="0" onclick="display(0)">0</button>
-            <button type="button" class="decimal" value=".">.</button>
+            <button type="button" class="decimal" value="." onclick="decimal()">.</button>
             <button type="button" id="equal" class="equal" value="=">=</button>
         </div>
     </main>
